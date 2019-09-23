@@ -35,6 +35,24 @@ app.use(
   })
 );
 
+// mongoose
+//   .connect(
+//     "mongodb+srv://" +
+//       process.env.MONGO_USERNAME +
+//       ":" +
+//       process.env.MONGO_PASSWORD +
+//       "@cluster0-eapci.mongodb.net/test?retryWrites=true&w=majority",
+
+//     { useNewUrlParser: true }
+//   )
+
+//   .then(() => {
+//     console.log("DB connected");
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
+
 //have requests go through router middleware
 app.use(router);
 
@@ -59,6 +77,10 @@ mongoose.connect(
 );
 
 //Listening on the port
-app.listen(PORT, function() {
-  console.log("Listening on port: " + PORT);
+var server = app.listen(PORT, function() {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
+// app.listen(PORT, function() {
+//   console.log("Listening on port: " + PORT);
+// });
